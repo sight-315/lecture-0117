@@ -1,4 +1,13 @@
 class MembersController < ApplicationController
+  # 新規作成フォーム
+  def new
+    @member = Member.new(birthday: Date.new(1980, 1, 1))
+  end
+
+  # 更新フォーム
+  def edit
+    @member = Member.find(params[:id])
+  end
   # 会員一覧
   def index
     @members = Member.order("number")
